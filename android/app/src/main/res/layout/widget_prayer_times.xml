@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@drawable/widget_background_rounded_corners">
+
+    <!-- Prayer times for all prayers -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvFajr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fajr"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvDhuhr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dhuhr"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvAsr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Asr"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvMaghrib"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Maghrib"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvIsha"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Isha"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- AM/PM TextViews -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvFajrAMPM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AM/PM"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvDhuhrAMPM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AM/PM"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvAsrAMPM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AM/PM"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvMaghribAMPM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AM/PM"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvIshaAMPM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AM/PM"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

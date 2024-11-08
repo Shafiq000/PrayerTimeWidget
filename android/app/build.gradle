@@ -144,6 +144,7 @@ android {
             useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)
         }
     }
+    
 }
 
 // Apply static values from `gradle.properties` to the `android.packagingOptions`
@@ -151,9 +152,9 @@ android {
 // android.packagingOptions.pickFirsts=/LICENSE,**/picasa.ini
 ["pickFirsts", "excludes", "merges", "doNotStrip"].each { prop ->
     // Split option: 'foo,bar' -> ['foo', 'bar']
-    def options = (findProperty("android.packagingOptions.$prop") ?: "").split(",");
+    def options = (findProperty("android.packagingOptions.$prop") ?: "").split(",")
     // Trim all elements in place.
-    for (i in 0..<options.size()) options[i] = options[i].trim();
+    for (i in 0..<options.size()) options[i] = options[i].trim()
     // `[] - ""` is essentially `[""].filter(Boolean)` removing all empty strings.
     options -= ""
 
@@ -169,10 +170,17 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-
-    def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
-    def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
-    def isWebpAnimatedEnabled = (findProperty('expo.webp.animated') ?: "") == "true";
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
+    implementation 'androidx.appcompat:appcompat:1.6.1' // AppCompat
+    implementation 'androidx.core:core-ktx:1.13.1' // Core library
+    implementation 'androidx.annotation:annotation:1.5.0' // Annotations
+    implementation "androidx.work:work-runtime-ktx:2.9.1"  // or latest version
+    implementation project(':notifee_react-native')
+    def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true"
+    def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true"
+    def isWebpAnimatedEnabled = (findProperty('expo.webp.animated') ?: "") == "true"
 
     if (isGifEnabled) {
         // For animated gif support
@@ -196,6 +204,6 @@ dependencies {
 }
 
 if (rnVersion < versionToNumber(0, 75, 0)) {
-    apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim(), "../native_modules.gradle");
+    apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim(), "../native_modules.gradle")
     applyNativeModulesAppBuildGradle(project)
 }

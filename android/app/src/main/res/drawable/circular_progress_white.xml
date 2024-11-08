@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Circle background (empty part of progress) -->
+    <item>
+        <shape android:shape="ring"
+            android:innerRadiusRatio="3"
+            android:thicknessRatio="12"
+            android:useLevel="false">
+            <solid android:color="#EAB61C"/> <!-- Background color -->
+        </shape>
+    </item>
+
+    <!-- Circle progress -->
+    <item android:id="@android:id/progress">
+        <shape android:shape="ring"
+            android:innerRadiusRatio="3"
+            android:thicknessRatio="12"
+            android:useLevel="true">
+            <solid android:color="#FFFFFF"/> <!-- Progress color (orange) -->
+        </shape>
+    </item>
+
+</layer-list>

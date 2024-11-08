@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/widget_background_rounded_corners"
+    android:id="@+id/widget_medium_layout"
+    android:gravity="center">
+
+    <!-- Circle Indicator -->
+    <RelativeLayout
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+       <ProgressBar
+        android:id="@+id/progress_circular_background"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:progressDrawable="@drawable/circular_progress_white"
+        android:indeterminate="false"
+        android:progress="100"
+        android:max="100"
+        android:layout_centerInParent="true"
+        android:rotation="-90"/>
+
+        <ProgressBar
+        android:id="@+id/progress_circular"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:progressDrawable="@@drawable/circular_progress_white"
+        android:indeterminate="false"
+        android:progress="75"
+        android:max="100"
+        android:layout_centerInParent="true"
+        android:rotation="-90"/>
+
+
+        <!-- Time in the center of the circle -->
+        <TextView
+            android:id="@+id/remaining_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_centerInParent="true"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <!-- Next Prayer Name -->
+    <TextView
+        android:id="@+id/next_prayer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next: Isha"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"/>
+
+    <!-- Next Prayer Time -->
+    <TextView
+        android:id="@+id/next_prayer_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:text=""
+        android:textSize="22sp"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center"/>
+</LinearLayout>

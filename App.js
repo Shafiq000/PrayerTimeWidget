@@ -1,21 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState,useEffect } from 'react';
+import { View, Text, ScrollView } from 'react-native';
+import PrayerTimesForm from './src/PrayerTimesForm';
+import notifee, { EventType } from '@notifee/react-native';
 
-export default function App() {
+const App = () => {
+  const [prayerTimes, setPrayerTimes] = useState(null);
+
+  const handlePrayerTimesFetched = (timings) => {
+    setPrayerTimes(timings);
+  };
+
+  useEffect(() => {
+    // Register background event handler
+    notifee.onBackgroundEvent(async (event) => {
+      switch (event.type) {
+        case EventType.ACTION_PRESS:
+          console.log('Action pressed:', event.detail);
+          break;
+        case EventType.DISMISSED:
+          console.log('Notification dismissed:', event.detail);
+          break;
+      }
+    });
+  }, []);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{flex:1}}>
+      <PrayerTimesForm onPrayerTimesFetched={handlePrayerTimesFetched} />
+      {prayerTimes && (
+        <View style={{ marginTop: 20 }}>
+          <Text>Prayer Times:</Text>
+          <Text>Fajr: {prayerTimes.Fajr}</Text>
+          <Text>Dhuhr: {prayerTimes.Dhuhr}</Text>
+          <Text>Asr: {prayerTimes.Asr}</Text>
+          <Text>Maghrib: {prayerTimes.Maghrib}</Text>
+          <Text>Isha: {prayerTimes.Isha}</Text>
+        </View>
+      )}
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
