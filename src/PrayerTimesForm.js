@@ -233,7 +233,6 @@ const PrayerTimesForm = () => {
         [selectedPrayer]: updatedTime,
       };
 
-      console.log("updatedTimings", updatedTimings);
 
       setTimings(updatedTimings);
 
